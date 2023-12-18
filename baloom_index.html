@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[playing with event handlers]</title>
+</head>
+<body>
+  <h2>Press up to see me grow</h2>
+  <p>🎈</p>
+</body>
+<script>
+  let ballom_pop = false;
+  let ballom = document.querySelector("p");
+  let ballom_size = 10;
+
+  window.addEventListener("keydown", event => {  
+    if (event.key == "ArrowDown"){
+      ballom.style.fontSize = -10 + ballom_size + 'px';
+      ballom_size -= 10;
+    }
+
+    else if (event.key == "ArrowUp"){
+      ballom.style.fontSize = 10 + ballom_size + 'px';
+      ballom_size += 10;
+    }
+
+    if (ballom_size >= 100){
+      ballom.innerText = "💥"
+      setTimeout(() => {
+        ballom.remove()
+      }, 400);
+      
+    }
+
+  });
+  
+</script>
+</html>
